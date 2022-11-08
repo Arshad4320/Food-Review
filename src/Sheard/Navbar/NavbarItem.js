@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Button } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../AuthContex/AuthProvider';
+
 const NavbarItem = () => {
+
+    const { logOut, user } = useContext(AuthContext)
+
+    const handleLgoOut = () => {
+        logOut()
+            .then()
+            .catch(err => console.error(err))
+    }
+
     return (
         <div className='bg-sky-100 sticky top-0 '>
             <Navbar collapseOnSelect expand="lg" className='shadow p-3'>
@@ -21,7 +33,10 @@ const NavbarItem = () => {
                         <Nav>
                             <Nav.Link href="#deets">More deets</Nav.Link>
                             <Nav.Link eventKey={2} href="#memes">
-                                Dank memes
+                                {
+                                    user?.uid ? <Button onClick={handleLgoOut}>Log out</Button> :
+                                        <Link to='/signup'><Button >Sign up</Button></Link>
+                                }
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
