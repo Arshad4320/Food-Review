@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Row, Container } from 'react-bootstrap';
+import { Col, Row, Container, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import Services from './Services';
 
 const Service = () => {
@@ -11,12 +12,16 @@ const Service = () => {
             .then(data => setService(data))
     }, [])
     return (
-        <div>
-            <h2 className='text-center'>Service</h2>
+        <div className='my-20'>
+            <h1 className='text-center mb-5'>Food Service</h1>
             <div className='grid grid-cols md:grid-cols-2 lg:grid-cols-3 gap-5 mx-10'>
                 {
                     service.map(food => <Services key={food._id} service={food}></Services>)
                 }
+            </div>
+            <div className='text-center m-5'>
+                <Link to='/allService'><Button>See All Food Service</Button></Link>
+
             </div>
         </div>
     );

@@ -18,7 +18,7 @@ const NavbarItem = () => {
     }
 
     return (
-        <div className='bg-sky-100 sticky top-0 '>
+        <div className='bg-sky-100  '>
             <Navbar collapseOnSelect expand="lg" className='shadow p-3'>
                 <Container>
                     <Navbar.Brand href="#home"><span className='text-green-800 font-bold text-3xl'>Travel</span> <span className='text-orange-500 font-bold text-3xl'>Country</span></Navbar.Brand>
@@ -34,7 +34,10 @@ const NavbarItem = () => {
                             <Nav.Link href="#deets">More deets</Nav.Link>
                             <Nav.Link eventKey={2} href="#memes">
                                 {
-                                    user?.uid ? <Button onClick={handleLgoOut}>Log out</Button> :
+                                    user?.uid ? <>
+                                        <Button onClick={handleLgoOut}>Log out</Button>
+                                        <span>{user.email}</span>
+                                    </> :
                                         <Link to='/signup'><Button >Sign up</Button></Link>
                                 }
                             </Nav.Link>
