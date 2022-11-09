@@ -27,6 +27,10 @@ const NavbarItem = () => {
                         <Nav className="m-auto">
                             <Link className='text-decoration-none' to='/'><Nav.Link href="#features">Home</Nav.Link></Link>
                             <Link className='text-decoration-none' to='/blogs'><Nav.Link href="#features">Blogs</Nav.Link></Link>
+                            {
+                                user?.uid ? <Link className='text-decoration-none' to='/myReview'><Nav.Link href="#features">My Review</Nav.Link></Link> :
+                                    <p className='d-none'>no uer</p>
+                            }
 
 
                         </Nav>
@@ -39,6 +43,7 @@ const NavbarItem = () => {
                                         <span>{user.email}</span>
                                     </> :
                                         <Link to='/signup'><Button >Sign up</Button></Link>
+
                                 }
                             </Nav.Link>
                         </Nav>

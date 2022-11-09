@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 const ServiceItem = ({ item }) => {
     const { img, name, description, price, _id } = item;
     return (
-        <div className=''>
-            <Card style={{}}>
+        <div >
+            <Card className='shadow'>
                 <Card.Img variant="top" className='w-100' src={img} />
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>

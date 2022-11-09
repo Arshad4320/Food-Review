@@ -1,16 +1,27 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { Card, Button, Container, Row, Col } from 'react-bootstrap';
 import { FaStar } from "react-icons/fa";
 import Form from 'react-bootstrap/Form';
 import { AuthContext } from '../../../AuthContex/AuthProvider';
 import swal from 'sweetalert';
+import AllFoodReview from '../../AllFoodReview/AllFoodReview';
+import Table from 'react-bootstrap/Table';
 
 const SingleService = () => {
     const { user } = useContext(AuthContext)
     const item = useLoaderData();
-
     const { _id, name, img, price, description } = item;
+
+    const [reviews, setReviews] = useState([])
+    console.log(reviews)
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/allReview?Food=${_id}`)
+            .then(res => res.json())
+            .then(data => setReviews(data))
+    }, [_id])
+
 
     const handleReview = event => {
         event.preventDefault()
@@ -28,6 +39,8 @@ const SingleService = () => {
             review,
 
         }
+
+
 
         fetch('http://localhost:5000/foodReview', {
 
@@ -54,8 +67,8 @@ const SingleService = () => {
         <Container>
             <div className='my-20'>
                 <Row>
-                    <Col sm='12' md="12" lg="">
-                        <Card style={{}}>
+                    <Col sm='12' md="12" lg="6">
+                        <Card className='shadow'>
                             <Card.Img variant="top" className='w-100' src={img} />
                             <Card.Body>
                                 <Card.Title>{name}</Card.Title>
@@ -64,22 +77,30 @@ const SingleService = () => {
                                 </Card.Text>
                                 <div className='d-flex justify-between'><h6>Price: ${price}</h6><h6 className='d-flex'><span className='mr-1'>Review</span>  <span className='d-flex text-yellow-400'><FaStar /><FaStar /><FaStar /></span></h6></div>
                                 <Link to='/allService'> <Button variant="primary" className='text-center'>See All Food</Button></Link>
+
+                                <Link to={`/review/${_id}`}> <Button variant="primary" className='text-center'>Add Review</Button></Link>
+
                             </Card.Body>
                         </Card >
                     </Col>
-                    <Col sm='12' md="12" lg="12" className='mt-5' >
+                    <Col sm="12" md="12" lg="6">
 
-                        <Form onSubmit={handleReview}>
-                            <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3 mb-3'>
-                                <input type="text" name='name' placeholder="your name" className="input input-bordered input-primary" />
-                                <input type="text" placeholder="Type here" className="input input-bordered input-primary  " defaultValue={user?.email} readOnly />
-                            </div>
-                            <textarea name='review' className="textarea textarea-primary w-full h-28" placeholder="Your Review"></textarea>
-                            <Button variant="primary" type="submit">
-                                Add Review
-                            </Button>
-                        </Form>
+                        <div className="overflow-x-auto">
+                            <table className="table w-full ">
+                                <thead>
+                                    <h3 className='font-bold text-blue-500'>Food Review {reviews.length}</h3>
+                                    <tr >
+                                        <th className='text-lg'>Food Name</th>
+                                        <th className='text-lg' >Review</th>
+                                        <th className='text-lg'>Reviewer Name</th>
+                                    </tr>
+                                </thead>
 
+                                {
+                                    reviews.map(review => <AllFoodReview key={review._id} reviews={review}></AllFoodReview>)
+                                }
+                            </table>
+                        </div>
                     </Col>
                 </Row>
             </div>
