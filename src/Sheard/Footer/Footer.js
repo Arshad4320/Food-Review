@@ -2,26 +2,26 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer className="footer p-10 bg-neutral text-neutral-content">
-            <div>
-                <span className="footer-title">Services</span>
-                <a href='/' className="link link-hover">Branding</a>
-                <a href='/' className="link link-hover">Design</a>
-                <a href='/' className="link link-hover">Marketing</a>
-                <a href='/' className="link link-hover">Advertisement</a>
+        <footer className="footer p-10 bg-slate-900 text-neutral-content">
+            <div >
+                <span className="font-bold text-2xl text-orange-500">Services</span>
+                <a href='/' className="link link-hover text-white font-semibold text-md">Branding</a>
+                <a href='/' className="link link-hover text-white font-semibold text-md">Design</a>
+                <a href='/' className="link link-hover text-white font-semibold text-md">Marketing</a>
+                <a href='/' className="link link-hover text-white font-semibold text-md">Advertisement</a>
             </div>
             <div>
-                <span className="footer-title">Company</span>
-                <a href='/' className="link link-hover">About us</a>
-                <a href='/' className="link link-hover">Contact</a>
-                <a href='/' className="link link-hover">Jobs</a>
-                <a href='/' className="link link-hover">Press kit</a>
+                <span className="font-bold text-2xl text-orange-500">Company</span>
+                <a href='/' className="link link-hover text-white font-semibold text-md">About us</a>
+                <a href='/' className="link link-hover text-white font-semibold text-md">Contact</a>
+                <a href='/' className="link link-hover text-white font-semibold text-md">Jobs</a>
+                <a href='/' className="link link-hover text-white font-semibold text-md">Press kit</a>
             </div>
             <div>
-                <span className="footer-title">Legal</span>
-                <a href='/' className="link link-hover">Terms of use</a>
-                <a href='/' className="link link-hover">Privacy policy</a>
-                <a href='/' className="link link-hover">Cookie policy</a>
+                <span className="font-bold text-2xl text-orange-500">Legal</span>
+                <a href='/' className="link link-hover text-white font-semibold text-md">Terms of use</a>
+                <a href='/' className="link link-hover text-white font-semibold text-md">Privacy policy</a>
+                <a href='/' className="link link-hover text-white font-semibold text-md">Cookie policy</a>
             </div>
         </footer>
     );

@@ -18,32 +18,41 @@ const NavbarItem = () => {
     }
 
     return (
-        <div className='bg-sky-100  '>
+        <div className=' bg-slate-900   '>
             <Navbar collapseOnSelect expand="lg" className='shadow p-3'>
                 <Container>
-                    <Navbar.Brand href="#home"><span className='text-green-800 font-bold text-3xl'>Travel</span> <span className='text-orange-500 font-bold text-3xl'>Country</span></Navbar.Brand>
+                    <Navbar.Brand href="#home"><span className='text-green-800 font-bold text-3xl'>Food</span> <span className='text-orange-500 font-bold text-3xl'>Service</span></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="m-auto">
-                            <Link className='text-decoration-none' to='/'><Nav.Link href="#features">Home</Nav.Link></Link>
-                            <Link className='text-decoration-none' to='/blogs'><Nav.Link href="#features">Blogs</Nav.Link></Link>
+                            <Link className='text-decoration-none text-lg font-semibold' to='/'>
+                                <Nav.Link href="#features"><span className='text-orange-500'>Home</span></Nav.Link>
+                            </Link>
+                            <Link className='text-decoration-none text-lg font-semibold ' to='/blogs'>
+                                <Nav.Link href="#features"><span className='text-orange-500'>Blogs</span></Nav.Link>
+                            </Link>
                             {
-                                user?.uid ? <Link className='text-decoration-none' to='/myReview'><Nav.Link href="#features">My Review</Nav.Link></Link> :
-                                    <p className='d-none'>no uer</p>
+                                user?.uid ?
+
+                                    <>
+                                        <Link className='text-decoration-none text-lg font-semibold' to='/myReview'>
+                                            <Nav.Link href="#features"><span className='text-orange-500'>My Review</span></Nav.Link></Link>
+
+                                        <Link className='text-decoration-none text-lg font-semibold' to='/addItem'>
+                                            <Nav.Link href="#features"><span className='text-orange-500'>Add Food</span></Nav.Link></Link>
+
+                                    </> : <p className='d-none'>no uer</p>
+
+
                             }
-
-
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#deets">More deets</Nav.Link>
                             <Nav.Link eventKey={2} href="#memes">
                                 {
                                     user?.uid ? <>
-                                        <Button onClick={handleLgoOut}>Log out</Button>
-                                        <span>{user.email}</span>
+                                        <Button variant="warning" onClick={handleLgoOut}>Log out</Button>
                                     </> :
-                                        <Link to='/signup'><Button >Sign up</Button></Link>
-
+                                        <Link to='/signup'><Button variant="warning">Sign up</Button></Link>
                                 }
                             </Nav.Link>
                         </Nav>

@@ -8,6 +8,8 @@ import SignUp from "../Pages/SignUp/SignUp";
 import Login from './../Pages/Login/Login';
 import MyReview from "../Pages/MayReview/MyReview";
 import AllFoodReview from "../Pages/AllFoodReview/AllFoodReview";
+import PrivateRoute from "./PrivetRoute";
+import AddItems from "../Pages/AddItems/AddItems";
 
 
 export const router = createBrowserRouter([
@@ -39,12 +41,17 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/review/:id',
-                element: <Review></Review>,
+                element: <PrivateRoute><Review></Review></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/singleFood/${params.id}`)
             },
             {
                 path: '/myReview',
-                element: <MyReview></MyReview>
+                element: <MyReview></MyReview>,
+
+            },
+            {
+                path: '/addItem',
+                element: <AddItems></AddItems>
             }
         ]
     }

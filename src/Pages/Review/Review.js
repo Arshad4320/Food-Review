@@ -61,18 +61,19 @@ const Review = () => {
                         <Form onSubmit={handleReview} className='bg-emerald-900 rounded shadow p-10 sm:w-100 lg:w-3/5 m-auto'>
                             <h2 className='text-center text-white mb-4'>Your Review</h2>
                             <div className='grid grid-cols-1 gap-3 mb-3 bo'>
+                                <Form.Label className="text-sky-300 text-lg">Your name </Form.Label>
                                 <input type="text" name='name' placeholder="your name" className="input  shadow-sm" required />
+                                <Form.Label className="text-sky-300 text-lg">password </Form.Label>
                                 <input type="text" placeholder="Type here" className="input shadow-sm" defaultValue={user?.email} readOnly />
                             </div>
+                            <Form.Label className="text-sky-300 text-lg">Your Review</Form.Label>
                             <textarea name='review' className="textarea shadow-sm w-full h-28" placeholder="Your Review" required></textarea>
-
-                            <Button variant="primary" type='submit' className='mt-3'>Submit</Button>
-
+                            <button className="btn btn-success mt-3 w-full" type='submit'>Submit</button>
                         </Form>
                     </div>
                 </Col>
             </Row>
-        </Container>
+        </Container >
     );
 };
 
