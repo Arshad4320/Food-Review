@@ -4,6 +4,8 @@ import { Card, Button, Container, Row, Col } from 'react-bootstrap';
 import { FaStar } from "react-icons/fa";
 import Form from 'react-bootstrap/Form';
 import { AuthContext } from '../../../AuthContex/AuthProvider';
+import swal from 'sweetalert';
+
 const SingleService = () => {
     const { user } = useContext(AuthContext)
     const item = useLoaderData();
@@ -13,20 +15,22 @@ const SingleService = () => {
     const handleReview = event => {
         event.preventDefault()
         const form = event.target;
-        const name = form.name.value;
-
+        const userName = form.name.value;
+        const review = form.review.value;
         const email = user?.email || 'unregistered'
 
         const food = {
             Food: _id,
+            ReviewerName: userName,
             FoodName: name,
             price: price,
             email,
-
+            review,
 
         }
 
-        fetch('http://localhost:5000/foods', {
+        fetch('http://localhost:5000/foodReview', {
+
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -34,7 +38,14 @@ const SingleService = () => {
             body: JSON.stringify(food)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged) {
+                    swal("Thanks", "Your Review Successfully added!", "success");
+                    form.reset()
+                }
+
+            })
             .catch(err => console.error(err))
     }
 
@@ -57,17 +68,15 @@ const SingleService = () => {
                         </Card >
                     </Col>
                     <Col sm='12' md="12" lg="12" className='mt-5' >
-                        <Form onSubmit={handleReview}>
 
+                        <Form onSubmit={handleReview}>
                             <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3 mb-3'>
                                 <input type="text" name='name' placeholder="your name" className="input input-bordered input-primary" />
                                 <input type="text" placeholder="Type here" className="input input-bordered input-primary  " defaultValue={user?.email} readOnly />
                             </div>
                             <textarea name='review' className="textarea textarea-primary w-full h-28" placeholder="Your Review"></textarea>
-
-
                             <Button variant="primary" type="submit">
-                                Submit
+                                Add Review
                             </Button>
                         </Form>
 
