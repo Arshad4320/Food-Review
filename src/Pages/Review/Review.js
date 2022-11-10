@@ -33,7 +33,7 @@ const Review = () => {
 
         }
 
-        fetch('http://localhost:5000/foodReview', {
+        fetch('https://food-server-two.vercel.app/foodReview', {
 
             method: "POST",
             headers: {

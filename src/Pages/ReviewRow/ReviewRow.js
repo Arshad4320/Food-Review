@@ -14,7 +14,9 @@ const ReviewRow = ({ reviewItem, handleDelete, handleUpdate }) => {
             <tr>
                 <th>
                     <Button variant='warning' onClick={() => handleDelete(_id)} className='mr-2'>Delete</Button>
+
                     <Link to={`/foodReview/${_id}`}><Button variant='warning' onClick={() => handleUpdate(_id)}>Edit</Button></Link>
+
                 </th>
                 <td>{FoodName}</td>
                 <td>{review}</td>

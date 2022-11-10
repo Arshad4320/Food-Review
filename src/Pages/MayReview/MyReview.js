@@ -14,7 +14,7 @@ const MyReview = () => {
     const [reviews, setReview] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/foodReview?email=${user?.email}`)
+        fetch(`https://food-server-two.vercel.app/foodReview?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setReview(data))
     }, [user?.email])
@@ -23,14 +23,14 @@ const MyReview = () => {
     const handleDelete = id => {
         const proceed = window.confirm('are you sure you want to delete this review')
         if (proceed) {
-            fetch(`http://localhost:5000/foodReview/${id}`, {
+            fetch(`https://food-server-two.vercel.app/foodReview/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
                 .then(data => {
 
                     if (data.deletedCount > 0) {
-                        swal("Deleted successfully!", "success");
+                        swal("Ok", "Deleted successfully !", "success");
                         const remaining = reviews.filter(odr => odr._id !== id);
                         setReview(remaining);
                     }
@@ -62,9 +62,9 @@ const MyReview = () => {
                                             </tr>
                                         </thead>
                                         {
-                                            // handleUpdate = { handleUpdate }
-
-                                            reviews.map(reviewItem => <ReviewRow key={reviewItem._id} handleDelete={handleDelete} reviewItem={reviewItem}></ReviewRow>)}
+                                            // 
+                                            // andleUpdate = { handleUpdate }
+                                            reviews.map(reviewItem => <ReviewRow key={reviewItem._id} handleDelete={handleDelete} reviewItem={reviewItem} ></ReviewRow>)}
                                     </table>
                                 </div>
                             </div>

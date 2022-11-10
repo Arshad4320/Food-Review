@@ -8,7 +8,7 @@ const AddItems = () => {
     const [items, setItems] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/allFoodService')
+        fetch('https://food-server-two.vercel.app/allFoodService')
             .then(res => res.json())
             .then(data => setItems(data));
     }, [])
@@ -25,7 +25,7 @@ const AddItems = () => {
         const item = { price, description, name, img };
 
 
-        fetch('http://localhost:5000/allFoodService', {
+        fetch('https://food-server-two.vercel.app/allFoodService', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

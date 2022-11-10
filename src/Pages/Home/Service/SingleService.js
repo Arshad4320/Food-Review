@@ -18,7 +18,7 @@ const SingleService = () => {
     console.log(reviews)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/allReview?Food=${_id}`)
+        fetch(`https://food-server-two.vercel.app/allReview?Food=${_id}`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [_id])
@@ -43,7 +43,7 @@ const SingleService = () => {
 
 
 
-        fetch('http://localhost:5000/foodReview', {
+        fetch('https://food-server-two.vercel.app/foodReview', {
 
             method: "POST",
             headers: {
