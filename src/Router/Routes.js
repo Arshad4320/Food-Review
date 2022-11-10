@@ -62,7 +62,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/addItem',
-                element: <AddItems></AddItems>
+                element: <PrivateRoute><AddItems></AddItems></PrivateRoute>
             }
         ]
     }
