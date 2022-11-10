@@ -4,13 +4,14 @@ import Form from 'react-bootstrap/Form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import { AuthContext } from '../../AuthContex/AuthProvider';
+import useTitle from '../../Hooks/UseTitle';
 
 
 
 const Login = () => {
     const location = useLocation()
     const navigate = useNavigate();
-
+    useTitle('login')
     const { loginUser } = useContext(AuthContext)
     let from = location.state?.from?.pathname || "/";
 

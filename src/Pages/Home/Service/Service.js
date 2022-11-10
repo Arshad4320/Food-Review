@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Row, Container, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import useTitle from '../../../Hooks/UseTitle';
 import Services from './Services';
 
 const Service = () => {

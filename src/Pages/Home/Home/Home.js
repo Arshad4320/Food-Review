@@ -1,4 +1,5 @@
 import React from 'react';
+import useTitle from '../../../Hooks/UseTitle';
 
 import About from '../AboutPage/About';
 
@@ -9,6 +10,7 @@ import SpacialItem from '../SpacilaItem/SpacialItem';
 
 
 const Home = () => {
+    useTitle('Home')
     return (
         <div >
             <Banner ></Banner>

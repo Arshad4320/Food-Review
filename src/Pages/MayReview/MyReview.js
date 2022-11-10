@@ -3,16 +3,15 @@ import { Col, Collapse, Container, Row } from 'react-bootstrap';
 import { AuthContext } from '../../AuthContex/AuthProvider';
 import ReviewRow from '../ReviewRow/ReviewRow';
 import swal from 'sweetalert';
+import useTitle from '../../Hooks/UseTitle';
 
 
 
 const MyReview = () => {
 
-
+    useTitle('Review')
     const { user } = useContext(AuthContext);
     const [reviews, setReview] = useState([])
-    const [items, setItems] = useState([])
-
 
     useEffect(() => {
         fetch(`http://localhost:5000/foodReview?email=${user?.email}`)
@@ -32,35 +31,12 @@ const MyReview = () => {
 
                     if (data.deletedCount > 0) {
                         swal("Deleted successfully!", "success");
-                        const remaining = items.filter(odr => odr._id !== id);
-                        setItems(remaining);
+                        const remaining = reviews.filter(odr => odr._id !== id);
+                        setReview(remaining);
                     }
                 })
         }
     }
-
-
-    // const handleUpdate = id => {
-    //     fetch(`http://localhost:5000/foodReview/${id}`, {
-    //         method: 'PATCH',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify({ status: 'Approved' })
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data)
-    //             if (data.modifiedCount > 0) {
-    //                 const remaining = items.filter(odr => odr._id !== id);
-    //                 const approving = items.find(odr => odr._id !== id);
-    //                 approving.status = 'Approved'
-    //                 const newOrders = [...remaining, approving];
-    //                 setItems(newOrders)
-
-    //             }
-    //         })
-    // }
 
     return (
         <Container>
