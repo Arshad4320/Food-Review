@@ -63,7 +63,7 @@ const Review = () => {
                             <div className='grid grid-cols-1 gap-3 mb-3 bo'>
                                 <Form.Label className="text-sky-300 text-lg">Your name </Form.Label>
                                 <input type="text" name='name' placeholder="your name" className="input  shadow-sm" required />
-                                <Form.Label className="text-sky-300 text-lg">password </Form.Label>
+                                <Form.Label className="text-sky-300 text-lg">Email Address </Form.Label>
                                 <input type="text" placeholder="Type here" className="input shadow-sm" defaultValue={user?.email} readOnly />
                             </div>
                             <Form.Label className="text-sky-300 text-lg">Your Review</Form.Label>
