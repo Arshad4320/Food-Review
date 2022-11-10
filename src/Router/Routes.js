@@ -12,6 +12,7 @@ import PrivateRoute from "./PrivetRoute";
 import AddItems from "../Pages/AddItems/AddItems";
 import UpdateReview from "../Pages/UpdateReview/UpdateReview";
 import Blog from "../Pages/Blog/Blog";
+import Error from "../Pages/ErrorPage/Error";
 
 
 export const router = createBrowserRouter([
@@ -65,5 +66,10 @@ export const router = createBrowserRouter([
                 element: <PrivateRoute><AddItems></AddItems></PrivateRoute>
             }
         ]
+
+    },
+    {
+        path: '*',
+        element: <Error></Error>
     }
 ])
