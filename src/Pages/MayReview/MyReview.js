@@ -67,7 +67,7 @@ const MyReview = () => {
             <Row>
                 <Col>
                     <div>
-                        <p className='text-center py-5 text-3xl lg:text-4xl font-semibold text-blue-900'>Your Review {reviews.length}</p>
+                        <p className='text-center py-5 text-3xl lg:text-4xl font-semibold text-orange-600'>Your Review {reviews.length}</p>
                         <div>
                             <div>
                                 <div className="overflow-x-auto  ">

@@ -12,8 +12,8 @@ const ReviewRow = ({ reviewItem, handleDelete, handleUpdate }) => {
         <tbody>
             <tr>
                 <th>
-                    <Button onClick={() => handleDelete(_id)} className='mr-2'>Delete</Button>
-                    <Button onClick={() => handleUpdate(_id)}>Edit</Button>
+                    <Button variant='warning' onClick={() => handleDelete(_id)} className='mr-2'>Delete</Button>
+                    <Button variant='warning' onClick={() => handleUpdate(_id)}>Edit</Button>
                 </th>
                 <td>{FoodName}</td>
                 <td>{review}</td>

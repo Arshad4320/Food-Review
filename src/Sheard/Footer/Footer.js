@@ -11,7 +11,7 @@ const Footer = () => {
                 <a href='/' className="link link-hover text-white font-semibold text-md">Advertisement</a>
             </div>
             <div>
-                <span className="font-bold text-2xl text-orange-500">Company</span>
+                <span className="font-bold text-2xl text-orange-500">Food Details</span>
                 <a href='/' className="link link-hover text-white font-semibold text-md">About us</a>
                 <a href='/' className="link link-hover text-white font-semibold text-md">Contact</a>
                 <a href='/' className="link link-hover text-white font-semibold text-md">Jobs</a>

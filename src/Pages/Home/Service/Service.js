@@ -13,14 +13,14 @@ const Service = () => {
     }, [])
     return (
         <div className='my-20'>
-            <h2 className='text-5xl text-center font-semibold text-orange-500 mb-5'>Food Service</h2>
+            <h2 className='lg:text-5xl text-4xl text-center font-semibold text-orange-500 mb-5'>Food Service</h2>
             <div className='grid grid-cols md:grid-cols-2 lg:grid-cols-3 gap-5 mx-10 '>
                 {
                     service.map(food => <Services key={food._id} service={food}></Services>)
                 }
             </div>
             <div className='text-center m-5'>
-                <Link to='/allService'><Button>See All Food Service</Button></Link>
+                <Link to='/allService'><Button variant='warning'>See All Food Service</Button></Link>
 
             </div>
         </div>

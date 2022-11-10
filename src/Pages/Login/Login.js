@@ -9,9 +9,11 @@ import { AuthContext } from '../../AuthContex/AuthProvider';
 
 const Login = () => {
     const location = useLocation()
-    let navigate = useNavigate();
+    const navigate = useNavigate();
+
     const { loginUser } = useContext(AuthContext)
     let from = location.state?.from?.pathname || "/";
+
     const handelLogin = event => {
         event.preventDefault()
         const form = event.target;

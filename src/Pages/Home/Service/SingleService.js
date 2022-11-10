@@ -7,6 +7,7 @@ import { AuthContext } from '../../../AuthContex/AuthProvider';
 import swal from 'sweetalert';
 import AllFoodReview from '../../AllFoodReview/AllFoodReview';
 import Table from 'react-bootstrap/Table';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 const SingleService = () => {
     const { user } = useContext(AuthContext)
@@ -69,16 +70,20 @@ const SingleService = () => {
                 <Row>
                     <Col sm='12' md="12" lg="6">
                         <Card className='shadow'>
-                            <Card.Img variant="top" className='w-100' src={img} />
+                            <PhotoProvider>
+                                <PhotoView src={img}>
+                                    <Card.Img variant="top" className='w-100 w-full rounded-md' src={img} />
+                                </PhotoView>
+                            </PhotoProvider>
                             <Card.Body>
                                 <Card.Title>{name}</Card.Title>
                                 <Card.Text>
                                     {description}
                                 </Card.Text>
                                 <div className='d-flex justify-between'><h6>Price: ${price}</h6><h6 className='d-flex'><span className='mr-1'>Review</span>  <span className='d-flex text-yellow-400'><FaStar /><FaStar /><FaStar /></span></h6></div>
-                                <Link to='/allService'> <Button variant="primary" className='text-center'>See All Food</Button></Link>
+                                <Link to='/allService' className='text-decoration-none'> <Button variant="warning" className='text-center'>See All Food</Button></Link>
 
-                                <Link to={`/review/${_id}`}> <Button variant="primary" className='text-center'>Add Review</Button></Link>
+                                <Link to={`/review/${_id}`} className='text-decoration-none'> <Button variant="warning" className='text-center'>Add Review</Button></Link>
 
                             </Card.Body>
                         </Card >

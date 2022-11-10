@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyDIs7LYaDDG8ZC6A39sTxCE_3SKwyt2jfs",
-    authDomain: "country-travel-54ced.firebaseapp.com",
-    projectId: "country-travel-54ced",
-    storageBucket: "country-travel-54ced.appspot.com",
-    messagingSenderId: "69050106889",
-    appId: "1:69050106889:web:4b4997fee55530a918a4d8"
+    apiKey: process.env.RACT_APP_apiKey,
+    authDomain: process.env.RACT_APP_authDomain,
+    projectId: process.env.RACT_APP_projectId,
+    storageBucket: process.env.RACT_APP_storageBucket,
+    messagingSenderId: process.env.RACT_APP_messagingSenderId,
+    appId: process.env.RACT_APP_appId
 };
 
 // Initialize Firebase
